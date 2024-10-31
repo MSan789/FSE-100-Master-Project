@@ -1,0 +1,31 @@
+% Connect to the EV3 Brick
+% Set the color sensor to Color Code Mode on Port 1
+brick.SetColorMode(1, 2); % Mode 2 is the Color Code Mode
+while true
+    brick.MoveMotor('DB', -10);
+    % Get the detected color code
+    color = brick.ColorCode(4); % Retrieve color code from sensor on Port 1
+    if color == 5  % Red detected
+        brick.StopMotor('BD', 'Coast');  % Stop the robot
+        pause(1);               % Wait for 1 second
+        disp('Red detected: robot stopped for 1 second');
+    
+    elseif color == 2  % Blue detected
+        brick.StopMotor('BD', 'Coast');  % Stop the robot
+        for i = 1:2
+            brick.beep();       % Beep two times
+            pause(0.5);         % Short pause between beeps
+        end
+        disp('Blue detected: robot stopped and beeped twice');
+        
+    elseif color == 3  % Green detected
+        brick.StopMotor('BD', 'Coast');  % Stop the robot
+        for i = 1:3
+            brick.beep();       % Beep three times
+            pause(0.5);         % Short pause between beeps
+        end
+        disp('Green detected: robot stopped and beeped three times');
+    end
+    
+    pause(0.1); % Small delay to avoid excessive checking
+end
