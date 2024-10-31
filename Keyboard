@@ -1,0 +1,25 @@
+global key;
+InitKeyboard();
+while 1
+pause(0.1);
+switch key
+case 'uparrow'
+brick.MoveMotor('DB', -50); % Motor A forward at half speed.
+case 'downarrow'
+brick.MoveMotor('DB', 50); % Motor A reverse at half speed.
+case 'leftarrow'
+brick.StopMotor('D', 'Coast');
+brick.MoveMotor('B', 150); % Motor A forward at half speed.
+case 'rightarrow'
+brick.StopMotor('B', 'Coast');
+brick.MoveMotor('D', 150); % Motor A forward at half speed.
+case 'u'
+PickingUp
+case 'd'
+PuttingDown   
+case 0
+brick.StopMotor('DB', 'Coast');
+case 'q'
+end
+end
+CloseKeyboard();
