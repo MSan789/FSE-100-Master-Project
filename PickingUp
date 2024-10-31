@@ -1,0 +1,2 @@
+brick.MoveMotorAngleRel('C', 20, -50, 'Coast');
+brick.WaitForMotor('C');
