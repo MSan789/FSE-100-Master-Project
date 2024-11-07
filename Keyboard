@@ -9,10 +9,10 @@ case 'downarrow'
 brick.MoveMotor('DB', 50); % Motor A reverse at half speed.
 case 'leftarrow'
 brick.StopMotor('D', 'Coast');
-brick.MoveMotor('B', 150); % Motor A forward at half speed.
+brick.MoveMotor('B', -100); % Motor A forward at half speed.
 case 'rightarrow'
 brick.StopMotor('B', 'Coast');
-brick.MoveMotor('D', 150); % Motor A forward at half speed.
+brick.MoveMotor('D', -100); % Motor A forward at half speed.
 case 'u'
 PickingUp
 case 'd'
