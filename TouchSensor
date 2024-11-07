@@ -1,0 +1,16 @@
+reading = brick.TouchPressed(1)
+while true
+    touch = brick.TouchPressed(1);  % Check if touch sensor on port 1 is pressed
+    if touch  % If touch sensor is pressed (i.e., the robot hits the wall)
+        % Move backward a little
+        brick.MoveMotor('DB', 50);  % Move motor A backward
+        pause(1);  % Move backward for 1 second
+        % Turn left after moving backward
+        brick.StopMotor('D', 'Coast');
+        brick.MoveMotor('B', -100); % Turn left by moving motor B forward
+        pause(1);  % Turn left for 1 second
+        break;  % Exit the loop after the full sequence
+    end
+    pause(0.1);  % Small delay to avoid overloading the loop
+end
+disp('Program finished.');
