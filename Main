@@ -1,0 +1,9 @@
+while true
+pause(0.1);
+brick.MoveMotor('DB', -50);
+    while 1
+        brick.ColorCode('1');
+        brick.UltrasoundSensor('1');
+        brick.TouchSensor.m();
+    end
+end 
