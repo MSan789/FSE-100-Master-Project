@@ -1,0 +1,25 @@
+perimeter = 0.3;
+forwardSpeed = 0.5;
+turnSpeed = 0.3;
+
+while true
+    brick.MoveMotor('DB', -50);
+    distance = brick.UltrasonicDist('1');
+
+if (distance > 1)
+    brick.StopMotor('DB',  'Coast');
+end
+     
+if ((distance < perimeter) && (distance ~= 0))
+    while distance < perimeter
+        brick.StopMotor('D', 'Coast');
+        brick.MoveMotor('B', -100); % turn left until distance is good
+    end
+end 
+if (distance == 0) 
+        brick.StopMotor('B', 'Coast');
+        brick.MoveMotor('D', -100); % turn right
+end
+end
+        
+
