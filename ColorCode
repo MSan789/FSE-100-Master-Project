@@ -1,0 +1,9 @@
+%brick = ConnectBrick('WALLE');
+while true
+    if brick.ColorCode('1') == 5  % 5 is the color code for red
+        brick.pause(0.1)
+    end
+    if (brick.ColorCode('1') == (2 || 3 || 4))  % 5 is the color code for red
+        Keyboard();
+    end
+end
